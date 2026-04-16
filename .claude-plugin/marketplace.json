@@ -1,0 +1,41 @@
+{
+  "name": "lyon-skills",
+  "owner": {
+    "name": "Lyon",
+    "email": "yieon@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "DevOps & SRE skills by Lyon (Grafana Champion) - Infrastructure as Code, observability, and Kubernetes best practices",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "lyon",
+      "source": "./",
+      "description": "Lyon's DevOps engineering guidelines - Terraform IaC patterns, AWS EKS operations, Grafana LGTM observability, and infrastructure decision-making for production systems",
+      "version": "0.1.0",
+      "author": {
+        "name": "Lyon"
+      },
+      "keywords": [
+        "devops",
+        "sre",
+        "terraform",
+        "kubernetes",
+        "eks",
+        "grafana",
+        "observability",
+        "lgtm",
+        "karpenter",
+        "datadog",
+        "iac"
+      ],
+      "category": "workflow",
+      "license": "MIT",
+      "skills": [
+        "./skills/lyon",
+        "./skills/skill-manager"
+      ]
+    }
+  ]
+}

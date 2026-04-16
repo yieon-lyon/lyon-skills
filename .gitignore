@@ -1,0 +1,32 @@
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.crt
+credentials*
+secrets*
+
+# Terraform
+terraform.tfstate
+terraform.tfstate.*
+.terraform/
+*.tfvars
+!template/*.tfvars
+
+# AWS
+.aws/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if using npx skills)
+node_modules/

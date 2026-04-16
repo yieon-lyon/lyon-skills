@@ -1,0 +1,25 @@
+{
+  "name": "lyon-skills",
+  "version": "0.1.0",
+  "repository": "https://github.com/yieon-lyon/lyon-skills",
+  "plugins": [
+    {
+      "name": "lyon",
+      "description": "Lyon's DevOps/SRE engineering guidelines for production infrastructure",
+      "skills": [
+        {
+          "name": "lyon",
+          "description": "Terraform IaC patterns, AWS EKS operations, Grafana LGTM observability, and infrastructure decision-making for production systems",
+          "path": "skills/lyon",
+          "tags": ["devops", "sre", "terraform", "eks", "grafana", "observability", "karpenter", "iac"]
+        },
+        {
+          "name": "skill-manager",
+          "description": "Manage Claude Code skills marketplace plugins - install, update, list, and curate third-party skill collections",
+          "path": "skills/skill-manager",
+          "tags": ["skills", "marketplace", "plugins", "management", "catalog"]
+        }
+      ]
+    }
+  ]
+}
