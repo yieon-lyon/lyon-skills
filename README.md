@@ -13,18 +13,44 @@ Skills for Terraform IaC, AWS EKS operations, Grafana LGTM observability, and a 
 
 ## Installation
 
-### Claude Code
+### One-shot full setup (recommended for new machines)
+
+Installs every marketplace and plugin in the curated catalog (Tier 1–3 by default):
+
+```bash
+# From a cloned repo
+./scripts/install-all.sh
+
+# Or directly from GitHub without cloning
+curl -fsSL https://raw.githubusercontent.com/yieon-lyon/lyon-skills/master/scripts/install-all.sh | bash
+```
+
+Options:
+
+```bash
+./scripts/install-all.sh --tier 1        # core workflow only
+./scripts/install-all.sh --tier 1,2      # core + IaC
+./scripts/install-all.sh --all           # include Tier 4 (specialized)
+./scripts/install-all.sh --dry-run       # preview commands
+./scripts/install-all.sh --force         # reinstall existing plugins
+```
+
+The script is idempotent — already-added marketplaces and installed plugins are skipped.
+
+### Manual install (single plugin)
+
+#### Claude Code
 
 ```bash
 claude plugin marketplace add yieon-lyon/lyon-skills
 claude plugin install lyon@lyon-skills
 ```
 
-### Cursor
+#### Cursor
 
 Settings → Rules, Skills, Subagents → Add from GitHub → `https://github.com/yieon-lyon/lyon-skills`
 
-### npx skills (cross-tool)
+#### npx skills (cross-tool)
 
 ```bash
 npx skills add yieon-lyon/lyon-skills
@@ -49,6 +75,7 @@ skills/
     references/
       catalog.md                      # Curated skills catalog
 template/SKILL.md                     # Starter template for new skills
+scripts/install-all.sh                # One-shot install of all curated marketplaces + plugins
 scripts/lint-skills.sh                # SKILL.md validation
 ```
 

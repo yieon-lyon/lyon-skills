@@ -80,14 +80,29 @@ npx skills add {owner}/{repo}/{path-to-skill}
 
 ## Installation Playbook
 
-### Fresh Setup
+### Fresh Setup (one shot)
+
+The repo ships an install script that adds every marketplace and plugin in
+one go. Use this on a new machine:
+
+```bash
+./scripts/install-all.sh              # Tier 1 + 2 + 3
+./scripts/install-all.sh --all        # include Tier 4
+./scripts/install-all.sh --tier 1     # core only
+./scripts/install-all.sh --dry-run    # preview without changes
+```
+
+It is idempotent — already-installed marketplaces and plugins are skipped.
+
+### Manual Setup (per-plugin)
+
 ```bash
 # 1. Add marketplaces
 claude plugin marketplace add yieon-lyon/lyon-skills
 claude plugin marketplace add forrestchang/andrej-karpathy-skills
 claude plugin marketplace add hashicorp/agent-skills
 claude plugin marketplace add grafana/skills
-claude plugin marketplace add zxkane/aws-skills
+claude plugin marketplace add whchoi98/aws-skills-for-claude-code
 
 # 2. Install core plugins
 claude plugin install lyon@lyon-skills
