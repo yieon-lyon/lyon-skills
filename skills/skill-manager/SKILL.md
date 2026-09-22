@@ -57,10 +57,21 @@ npx skills add {owner}/{repo}/{path-to-skill}
 
 | Plugin | Source | Purpose |
 |--------|--------|---------|
-| `terraform-code-generation@hashicorp` | `hashicorp/agent-skills` | Terraform HCL style guide, testing, import |
-| `terraform-module-generation@hashicorp` | `hashicorp/agent-skills` | Module refactoring, Terraform Stacks |
-| `terraform-provider-development@hashicorp` | `hashicorp/agent-skills` | Provider development (resources, tests, docs) |
-| `aws-skills-for-claude-code` | `zxkane/aws-skills` | AWS CDK, cost ops, serverless, agentic AI |
+| `terraform@hashicorp` | `hashicorp/agent-skills` | All Terraform skills consolidated (16): style guide, testing, import, modules, stacks, policy, provider development |
+| `aws-skills-for-claude-code` | `whchoi98/aws-skills-for-claude-code` | AWS ops (IaC, cost, IAM, observability), Datadog, code review |
+
+> **HashiCorp restructure (2026-09)**: the former `terraform-code-generation`,
+> `terraform-module-generation`, and `terraform-provider-development` plugins were
+> removed upstream and consolidated into a single `terraform` plugin (plus `packer`).
+> If you still have the legacy three installed, they can no longer be updated —
+> uninstall them and install `terraform@hashicorp`.
+>
+> The legacy plugins bundled the **Terraform MCP server** (registry search tools);
+> the consolidated plugin does not. Re-register it manually after migrating:
+>
+> ```bash
+> claude mcp add --scope user terraform -- docker run -i --rm -e TFE_TOKEN -e TFE_ADDRESS hashicorp/terraform-mcp-server
+> ```
 
 ### Tier 3: Observability
 
@@ -109,22 +120,49 @@ claude plugin install lyon@lyon-skills
 claude plugin install andrej-karpathy-skills@karpathy-skills
 
 # 3. Install IaC plugins
-claude plugin install terraform-code-generation@hashicorp
-claude plugin install terraform-module-generation@hashicorp
+claude plugin install terraform@hashicorp
+claude plugin install aws-skills-for-claude-code@aws-skills-for-claude-code
 
 # 4. Install observability plugins
 claude plugin install grafana-lgtm@grafana-skills
 claude plugin install grafana-core@grafana-skills
 ```
 
-### Update All
-```bash
-# Check for updates
-claude plugin marketplace update
+## Updating Skills
 
-# Reinstall to get latest
-claude plugin install {plugin}@{marketplace} --force
+### Consumer side (any machine — CLI and desktop app share `~/.claude`)
+
+```bash
+# 1. Refresh marketplace caches from their git sources (all, or one by name)
+claude plugin marketplace update
+claude plugin marketplace update {marketplace-name}
+
+# 2. Update installed plugins (per plugin; -y skips the confirmation prompt)
+claude plugin update {plugin}@{marketplace}
+
+# 3. Restart Claude Code (new session) to apply
 ```
+
+Notes:
+- `claude plugin update` fetches new files **only when the manifest `version`
+  changed** — "already at the latest version" with a stale version number means
+  the publisher forgot to bump it.
+- `claude plugin install` has **no `--force` flag**; to force-reinstall at the
+  same version: `claude plugin uninstall -y {plugin}` then `install` again.
+- The Claude **desktop app** uses the same plugin store — run the commands in
+  any terminal, then start a new session in the app.
+
+### Publisher side (releasing a skill update)
+
+1. Edit skills, run validation (`./scripts/lint-skills.sh` or `claude plugin validate .`)
+2. **Bump `version`** in every manifest — `.claude-plugin/marketplace.json`,
+   `.agents-plugin/marketplace.json`, `skill-registry.json`. Without the bump,
+   installed copies will never pull the update.
+3. Commit and push to the repo the marketplace was added from
+4. Optionally tag the release: `claude plugin tag`
+5. Directory sites (e.g. awesomeclaudeplugins.com) re-crawl GitHub automatically —
+   no manual action; they display marketplace-manifest metadata (name, version,
+   description, keywords), not individual skill files
 
 ## Marketplace Architecture
 

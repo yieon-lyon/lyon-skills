@@ -64,9 +64,9 @@ PLUGINS=(
   "1|andrej-karpathy-skills@karpathy-skills"
 
   # Tier 2 - Infrastructure & IaC
-  "2|terraform-code-generation@hashicorp"
-  "2|terraform-module-generation@hashicorp"
-  "2|terraform-provider-development@hashicorp"
+  # NOTE: hashicorp consolidated terraform-code-generation / terraform-module-generation /
+  # terraform-provider-development into a single `terraform` plugin (+ `packer`).
+  "2|terraform@hashicorp"
   "2|aws-skills-for-claude-code@aws-skills-for-claude-code"
 
   # Tier 3 - Observability
@@ -128,11 +128,11 @@ for entry in "${PLUGINS[@]}"; do
     echo "= $spec already installed, skipping"
     continue
   fi
-  if [ "$FORCE" -eq 1 ]; then
-    run claude plugin install "$spec" --force
-  else
-    run claude plugin install "$spec"
+  if [ "$FORCE" -eq 1 ] && plugin_installed "$spec"; then
+    # `claude plugin install` has no --force flag; reinstall = uninstall + install
+    run claude plugin uninstall -y "${spec%%@*}"
   fi
+  run claude plugin install "$spec"
 done
 
 echo ""

@@ -58,6 +58,19 @@ Settings → Rules, Skills, Subagents → Add from GitHub → `https://github.co
 npx skills add yieon-lyon/lyon-skills
 ```
 
+## Updating
+
+Works the same for the CLI and the Claude desktop app (they share `~/.claude`):
+
+```bash
+claude plugin marketplace update lyon-skills   # refresh manifest cache from GitHub
+claude plugin update lyon@lyon-skills          # pull the new version
+```
+
+Then start a new Claude Code session to apply. `plugin update` only fetches when
+the manifest `version` changed — releases here always bump it, so if you see
+"already at the latest version" unexpectedly, re-run `marketplace update` first.
+
 ## Repository Structure
 
 ```
