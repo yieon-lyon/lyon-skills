@@ -16,7 +16,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.1.0"
+  version: "0.2.2"
   grafana_champion: true
 ---
 
@@ -39,6 +39,16 @@ Optimized for AWS-centric, Kubernetes-native, observability-first environments.
 - `references/observability.md` - Grafana LGTM stack, Loki distributed, OTel, Datadog
 - `references/cilium-network.md` - Cilium eBPF networking, Tetragon runtime security
 - `references/gitops.md` - ArgoCD GitOps patterns, multi-env Application templates
+
+## Related Skills (same plugin, load separately)
+
+These are standalone skills so they trigger on their own domains without pulling
+this skill's IaC/EKS context — invoke them directly when the topic comes up:
+
+- **`incident-management`** - incident metrics (MTBF/MTTR/MTTA/MTTF), alert severity
+  levels (P1-P5), on-call process, paging conditions, RCA standards
+- **`alerting-process`** - alert-manager middleware design, Grafana/Datadog webhook
+  contracts, Slack channel routing, alert lifecycle threading, latency thresholds
 
 ## 1. Infrastructure as Code Principles
 

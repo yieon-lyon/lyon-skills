@@ -11,7 +11,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.1.0"
+  version: "0.2.2"
 ---
 
 # Incident Management
