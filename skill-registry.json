@@ -1,6 +1,6 @@
 {
   "name": "lyon-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "https://github.com/yieon-lyon/lyon-skills",
   "plugins": [
     {
@@ -11,25 +11,56 @@
           "name": "lyon",
           "description": "Terraform IaC patterns, AWS EKS operations, Grafana LGTM observability, and infrastructure decision-making for production systems",
           "path": "skills/lyon",
-          "tags": ["devops", "sre", "terraform", "eks", "grafana", "observability", "karpenter", "iac"]
+          "tags": [
+            "devops",
+            "sre",
+            "terraform",
+            "eks",
+            "grafana",
+            "observability",
+            "karpenter",
+            "iac"
+          ]
         },
         {
           "name": "skill-manager",
           "description": "Manage Claude Code skills marketplace plugins - install, update, list, and curate third-party skill collections",
           "path": "skills/skill-manager",
-          "tags": ["skills", "marketplace", "plugins", "management", "catalog"]
+          "tags": [
+            "skills",
+            "marketplace",
+            "plugins",
+            "management",
+            "catalog"
+          ]
         },
         {
           "name": "incident-management",
           "description": "Incident metrics (MTBF/MTTR/MTTA/MTTF), alert severity levels (P1-P5), 24/7 on-call process, paging conditions, and RCA standards",
           "path": "skills/incident-management",
-          "tags": ["incident", "oncall", "severity", "sre", "mttr", "rca", "postmortem"]
+          "tags": [
+            "incident",
+            "oncall",
+            "severity",
+            "sre",
+            "mttr",
+            "rca",
+            "postmortem"
+          ]
         },
         {
           "name": "alerting-process",
           "description": "Alert notification pipeline - Grafana/Datadog webhook normalization, Slack channel routing, alert lifecycle threading, escalation, and latency threshold assessment",
           "path": "skills/alerting-process",
-          "tags": ["alerting", "slack", "grafana", "datadog", "webhook", "routing", "sre"]
+          "tags": [
+            "alerting",
+            "slack",
+            "grafana",
+            "datadog",
+            "webhook",
+            "routing",
+            "sre"
+          ]
         }
       ]
     }
