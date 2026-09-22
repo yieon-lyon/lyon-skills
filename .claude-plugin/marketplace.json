@@ -28,13 +28,18 @@
         "lgtm",
         "karpenter",
         "datadog",
-        "iac"
+        "iac",
+        "incident-management",
+        "oncall",
+        "alerting"
       ],
       "category": "workflow",
       "license": "MIT",
       "skills": [
         "./skills/lyon",
-        "./skills/skill-manager"
+        "./skills/skill-manager",
+        "./skills/incident-management",
+        "./skills/alerting-process"
       ]
     }
   ]

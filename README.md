@@ -8,8 +8,10 @@ Skills for Terraform IaC, AWS EKS operations, Grafana LGTM observability, and a 
 
 | Skill | Description |
 |-------|-------------|
-| `lyon` | Personal DevOps engineering guidelines — Terraform patterns, EKS/Karpenter operations, Grafana LGTM stack, code review standards, and decision-making framework |
+| `lyon` | Personal DevOps engineering guidelines — Terraform patterns (mandatory tagging), EKS/Karpenter operations, Grafana LGTM stack, code review standards, and decision-making framework |
 | `skill-manager` | Marketplace plugin management — install, update, and curate skills from Grafana, HashiCorp, AWS, and community sources |
+| `incident-management` | Incident metrics (MTBF/MTTR/MTTA/MTTF), alert severity levels (P1–P5), 24/7 on-call process, paging conditions, and RCA standards |
+| `alerting-process` | Alert notification pipeline — Grafana/Datadog webhook normalization, Slack routing, lifecycle threading, escalation, latency threshold assessment |
 
 ## Installation
 
@@ -74,6 +76,10 @@ skills/
     SKILL.md                          # Marketplace plugin management
     references/
       catalog.md                      # Curated skills catalog
+  incident-management/
+    SKILL.md                          # Incident metrics, severity levels, on-call process
+  alerting-process/
+    SKILL.md                          # Alert pipeline, webhook contracts, Slack routing
 template/SKILL.md                     # Starter template for new skills
 scripts/install-all.sh                # One-shot install of all curated marketplaces + plugins
 scripts/lint-skills.sh                # SKILL.md validation
