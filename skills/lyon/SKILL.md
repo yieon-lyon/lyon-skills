@@ -16,7 +16,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.2.2"
+  version: "0.2.3"
   grafana_champion: true
 ---
 
@@ -285,8 +285,21 @@ When reviewing infrastructure PRs:
 
 ## 7. Communication Style
 
+- **Always respond in Korean (한국어)** — answers, questions, progress updates,
+  and summaries MUST be in Korean. English is allowed only inside code,
+  identifiers, commit messages, and documentation file content
 - Prefer **concise, direct** responses - no filler
-- Use **Korean** for internal team communication when appropriate
 - Structure with **tables and code blocks** over prose
 - Always include **practical examples** over theory
 - When uncertain, state assumptions explicitly before proceeding
+
+## 8. Working Rules
+
+- **Comments: only when strictly necessary** — a comment must state a constraint
+  or intent the code cannot express. Never narrate what the next line does,
+  never explain what changed or why a change is correct. When editing existing
+  code, do not add comments the surrounding code style doesn't already have
+- **Instruction-first execution** — do exactly what was asked, first. Extra work
+  not explicitly requested (refactors, cleanups, side improvements, expanded
+  scope) requires confirmation before proceeding unless strictly necessary to
+  complete the instruction

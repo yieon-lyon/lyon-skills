@@ -43,6 +43,16 @@ scripts/lint-skills.sh             # SKILL.md validation
 3. Run `./scripts/lint-skills.sh` to validate
 4. Register in all three marketplace manifests and `skill-registry.json`
 
+## Working Style
+
+- **Respond in Korean (한국어)** — all answers, questions, and progress updates
+  must be in Korean. English only inside code, commit messages, and skill file content
+- **Minimal comments** — only comments that state constraints the code cannot
+  express; no narration, no change-explanations, no restating the obvious
+- **Instruction-first** — execute the requested task first; for work not
+  explicitly requested (refactors, extra reviews, scope expansion), confirm
+  with the user before proceeding unless strictly necessary
+
 ## Do Not
 
 - Add internal credentials or infrastructure-specific secrets
