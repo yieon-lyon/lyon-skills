@@ -25,6 +25,24 @@ s3://{company}-terraform-state/
   aws/{account-b}/{env-N}/eks/terraform.tfstate
 ```
 
+### Backend Selection: Long-lived vs One-off
+
+| Work type | Backend | Why |
+|-----------|---------|-----|
+| Long-lived infrastructure (default) | S3 + DynamoDB locking, per the convention above | Shared state, locking, history, CI/CD |
+| **Obviously one-off work** — experiment, PoC, temp resource destroyed when done | **None (local state)** | Remote backend is pure overhead; skip the `backend "s3"` block entirely |
+
+A task qualifies as one-off when **all** of these hold:
+
+- Short-lived: `terraform destroy` ends it when the task is done
+- No one else — human or pipeline — will ever read or write its state
+- Not under a `terraform/aws/{account}/...` state-convention path (those are long-lived by definition)
+
+If a "temporary" stack survives and becomes permanent, add the S3 backend at
+that point and run `terraform init -migrate-state`. Mandatory tags
+(`Team`/`Env`/`Service`) still apply to one-off resources — they are what lets
+orphaned experiments be found and cleaned up.
+
 ## Symlink Module Pattern
 
 For multi-environment deployments sharing the same Terraform code:

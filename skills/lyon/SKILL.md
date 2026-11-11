@@ -16,7 +16,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.2.3"
+  version: "0.2.4"
   grafana_champion: true
 ---
 
@@ -79,9 +79,13 @@ terraform/
     datadog/
 ```
 
-**State management**: Always use S3 backend with DynamoDB locking.
+**State management**: Use S3 backend with DynamoDB locking for anything that
+lives on. **Skip the backend entirely for obviously one-off work** — a quick
+experiment, a PoC, or a temporary resource that will be `terraform destroy`-ed
+when done. Local state is fine there; a remote backend is pure overhead.
 
 ```hcl
+# Long-lived infrastructure (default)
 terraform {
   backend "s3" {
     bucket         = "{company}-terraform-state"
@@ -91,7 +95,14 @@ terraform {
     encrypt        = true
   }
 }
+
+# One-off / throwaway work: no backend block — local state
 ```
+
+One-off test: short-lived (destroyed after the task), nobody else and no
+pipeline will ever touch its state. If a "temporary" stack survives and gets
+promoted to long-lived, add the S3 backend then and migrate with
+`terraform init -migrate-state`.
 
 **Symlink architecture**: For multi-environment EKS deployments, use symlinks from environment directories to common module files. This maintains per-environment state while sharing the same Terraform code.
 
