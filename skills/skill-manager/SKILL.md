@@ -11,7 +11,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Lyon
-  version: "0.2.5"
+  version: "0.2.6"
 ---
 
 # Skill Manager

@@ -94,9 +94,15 @@ skills/
     SKILL.md                          # Incident metrics, severity levels, on-call process
   alerting-process/
     SKILL.md                          # Alert pipeline, webhook contracts, Slack routing
+  git-discipline/
+    SKILL.md                          # Git rules for AI agents (no autonomous commits/pushes)
 template/SKILL.md                     # Starter template for new skills
 scripts/install-all.sh                # One-shot install of all curated marketplaces + plugins
 scripts/lint-skills.sh                # SKILL.md validation
+hooks/
+  hooks.json                          # Plugin hooks registration
+  skill-first.sh                      # SessionStart: inject skill-first reminder
+  git-guard.sh                        # PreToolUse: confirm state-changing git commands
 ```
 
 ## Curated Marketplace Catalog

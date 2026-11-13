@@ -10,7 +10,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.2.5"
+  version: "0.2.6"
 ---
 
 # Git Discipline
@@ -50,6 +50,21 @@ user's decision.
 
 `git status`, `git diff`, `git log`, `git show`, `git blame`, `git fetch`,
 `git branch --list`, remote inspection. Reading never needs permission.
+
+## Enforcement
+
+This plugin ships hooks (`hooks/hooks.json`) as a backstop for agents that
+skip reading skills:
+
+- **SessionStart** injects a skill-first reminder into every session: read
+  this skill before any state-changing git command.
+- **PreToolUse (Bash)** intercepts state-changing git commands
+  (`commit`, `push`, branch creation, `merge`, `rebase`, `tag`, `reset`,
+  `gh pr create`, ...) and forces a user confirmation prompt regardless of
+  permission mode.
+
+The hooks are a safety net, not the rule — everything above applies in full
+even on platforms that do not support hooks.
 
 ## When a Task Seems to Need a Commit
 

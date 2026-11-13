@@ -28,6 +28,7 @@ skills/
       catalog.md                   # Curated skills catalog
 template/SKILL.md                  # Starter template for new skills
 scripts/lint-skills.sh             # SKILL.md validation
+hooks/hooks.json                   # Plugin hooks: skill-first reminder + git guard
 ```
 
 ## Key Architecture
@@ -55,6 +56,12 @@ scripts/lint-skills.sh             # SKILL.md validation
 - **No git actions on your own** — never create branches, commit, push, tag,
   or open PRs without an explicit instruction in the current conversation;
   finish the edits, then ask (see `skills/git-discipline`)
+- **Skill-first** — before starting work in a domain covered by a skill in
+  this plugin (Terraform/EKS/observability → `lyon`, incidents →
+  `incident-management`, alert routing → `alerting-process`, state-changing
+  git commands → `git-discipline`, plugin management → `skill-manager`),
+  invoke that skill and follow it; never proceed from memory of its content.
+  Enforced by `hooks/hooks.json` (SessionStart reminder + git PreToolUse guard)
 
 ## Do Not
 
