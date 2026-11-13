@@ -12,6 +12,7 @@ Skills for Terraform IaC, AWS EKS operations, Grafana LGTM observability, and a 
 | `skill-manager` | Marketplace plugin management — install, update, and curate skills from Grafana, HashiCorp, AWS, and community sources |
 | `incident-management` | Incident metrics (MTBF/MTTR/MTTA/MTTF), alert severity levels (P1–P5), 24/7 on-call process, paging conditions, and RCA standards |
 | `alerting-process` | Alert notification pipeline — Grafana/Datadog webhook normalization, Slack routing, lifecycle threading, escalation, latency threshold assessment |
+| `git-discipline` | Git rules for AI agents — no branch creation, commits, pushes, tags, or PRs without explicit user instruction |
 
 ## Installation
 

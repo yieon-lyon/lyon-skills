@@ -16,7 +16,7 @@ description: >
 license: MIT
 metadata:
   author: Lyon
-  version: "0.2.4"
+  version: "0.2.5"
   grafana_champion: true
 ---
 
@@ -314,3 +314,6 @@ When reviewing infrastructure PRs:
   not explicitly requested (refactors, cleanups, side improvements, expanded
   scope) requires confirmation before proceeding unless strictly necessary to
   complete the instruction
+- **Git actions require explicit instruction** — never create branches, commit,
+  push, tag, or open PRs on your own; finish the edits, report, and ask
+  (full rules: `git-discipline` skill in this plugin)

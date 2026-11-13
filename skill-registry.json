@@ -1,6 +1,6 @@
 {
   "name": "lyon-skills",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "repository": "https://github.com/yieon-lyon/lyon-skills",
   "plugins": [
     {
@@ -60,6 +60,17 @@
             "webhook",
             "routing",
             "sre"
+          ]
+        },
+        {
+          "name": "git-discipline",
+          "description": "Git operation rules for AI agents - no branch creation, commits, pushes, tags, or PRs without explicit user instruction",
+          "path": "skills/git-discipline",
+          "tags": [
+            "git",
+            "safety",
+            "workflow",
+            "agent-rules"
           ]
         }
       ]

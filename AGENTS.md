@@ -52,6 +52,9 @@ scripts/lint-skills.sh             # SKILL.md validation
 - **Instruction-first** — execute the requested task first; for work not
   explicitly requested (refactors, extra reviews, scope expansion), confirm
   with the user before proceeding unless strictly necessary
+- **No git actions on your own** — never create branches, commit, push, tag,
+  or open PRs without an explicit instruction in the current conversation;
+  finish the edits, then ask (see `skills/git-discipline`)
 
 ## Do Not
 
